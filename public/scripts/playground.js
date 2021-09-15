@@ -16,11 +16,11 @@ const receiveCompName = () => {
         .then(data => {
             console.log('Success:', data);
             let a = data["names"]
-            // console.log(a)
-            // console.log(a[4].name)
-            // console.log(a.length - 1)
+            console.log(a)
+            console.log(a[4].name)
+            console.log(a.length - 1)
             let b = a[a.length - 1]
-            // console.log(b.name)
+            console.log(b.name)
             let c = b.name
             console.log(c)
 
@@ -54,27 +54,13 @@ buttons.forEach((button) => {
 })
 
 
-
-
-
-
-let test = document.querySelector('.test')
-
-test.addEventListener('click', (e) => {
-    let selectWinner = document.querySelectorAll('.selectedButton')
-    selectWinner.forEach((selection) => {
-        console.log(selection.innerText)
-    })
-})
-
-
-const sendSelection = (selection) => {
+const sendSelection = (selected => {
     fetch('api/sendselection', {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(selection),
+        body: JSON.stringify(selected),
     })
         .then(response => response.json())
         .then(data => {
@@ -84,103 +70,118 @@ const sendSelection = (selection) => {
             console.error('Error:', error);
         });
 
+})
+
+
+
+let test = document.querySelector('.test')
+
+test.addEventListener('click', (e) => {
+
+    let selectWinner = document.querySelectorAll('.selectedButton')
+    selectWinner.forEach((selection) => {
+        console.log(selection.innerText)
+        sendSelection({ input: selection.innerText })
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+valbtn.addEventListener('click', (e) => {
+    sendSelection()
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+button1.forEach((item) => {
+    item.addEventListener('click', (e) => {
+        item.classList.toggle("selectedButton")
+    })
+});
+
+
+
+
+MYWAY
+
+let button1 = document.querySelectorAll('.first')
+let button2 = document.querySelector('.second')
+let button3 = document.querySelector('.third')
+
+
+
+button1.addEventListener('click', (e) => {
+    if (button1.className === "first") {
+        button1.className = "selectedButton first"
+    }
+    else if (button1.className === "selectedButton first") {
+        button1.className = "first"
+    }
+})
+
+
+
+button2.addEventListener('click', (e) => {
+    if (button2.className === "second") {
+        button2.className = "selectedButton second"
+    }
+    else if (button2.className === "selectedButton second") {
+        button2.className = "second"
+    }
+})
+
+
+
+button3.addEventListener('click', (e) => {
+    if (button3.className === "third") {
+        button3.className = "selectedButton third"
+    }
+    else if (button3.className === "selectedButton third") {
+        button3.className = "third"
+    }
+})
+
+
+
+if (item.className === "first") {
+    item.className = "selectedButton first"
 }
-
-
-
-
-
-
-
-
-
-// valbtn.addEventListener('click', (e) => {
-//     // sendSelection()
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// button1.forEach((item) => {
-//     item.addEventListener('click', (e) => {
-//         item.classList.toggle("selectedButton") ====> toggle : add the class if its not there , remove it if it is 
-//     })
-// });
-
-
-
-
-    //MYWAY
-
-// let button1 = document.querySelectorAll('.first')
-// let button2 = document.querySelector('.second')
-// let button3 = document.querySelector('.third')
-
-
-
-// button1.addEventListener('click', (e) => {
-//     if (button1.className === "first") {
-//         button1.className = "selectedButton first"
-//     }
-//     else if (button1.className === "selectedButton first") {
-//         button1.className = "first"
-//     }
-// })
-
-
-
-// button2.addEventListener('click', (e) => {
-//     if (button2.className === "second") {
-//         button2.className = "selectedButton second"
-//     }
-//     else if (button2.className === "selectedButton second") {
-//         button2.className = "second"
-//     }
-// })
-
-
-
-// button3.addEventListener('click', (e) => {
-//     if (button3.className === "third") {
-//         button3.className = "selectedButton third"
-//     }
-//     else if (button3.className === "selectedButton third") {
-//         button3.className = "third"
-//     }
-// })
-
-
-
-// if (item.className === "first") {
-    //     item.className = "selectedButton first"
-    // }
-    // else if (item.className === "selectedButton first") {
-    //     item.className = "first"
-    // }
+else if (item.className === "selectedButton first") {
+    item.className = "first"
+}

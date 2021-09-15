@@ -34,9 +34,8 @@ app.post("/api/receivename", (req, res) => {
 
 })
 app.post("/api/sendselection", (req, res) => {
-  console.log(req.body)
   console.log('hello from playground')
-
+  console.log(req.body)
 })
 
 
@@ -44,4 +43,4 @@ app.post("/api/sendselection", (req, res) => {
 
 
 
-app.listen(process.env.PORT || 3000, () => console.log("Server Up and running"));
+app.listen(process.env.PORT || 4000, () => console.log("Server Up and running"));

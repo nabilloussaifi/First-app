@@ -24,10 +24,10 @@ const receiveCompName = () => {
             console.log('Success:', data);
             let a = data["names"]
             console.log(a)
-            // console.log(a[4].name)
-            // console.log(a.length - 1)
+            console.log(a[4].name)
+            console.log(a.length - 1)
             let b = a[a.length - 1]
-            // console.log(b)
+            console.log(b)
             let c = b.name
             console.log(c)
 
@@ -144,10 +144,10 @@ const match5 = () => {
 
 results.addEventListener('click', (e) => {
     fetchMatch1()
-    setTimeout(fetchMatch2, 10)
-    setTimeout(fetchMatch3, 20)
-    setTimeout(fetchMatch4, 30)
-    setTimeout(match5, 900)
+    setTimeout(fetchMatch2, 100)
+    setTimeout(fetchMatch3, 200)
+    setTimeout(fetchMatch4, 300)
+    setTimeout(match5, 700)
 
 })
 

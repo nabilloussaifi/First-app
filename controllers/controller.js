@@ -22,7 +22,9 @@ const addNameToDb = (compNameFromBrain) => {
 
 
 
-
+const addSelectToDb = (selectFromBrain) => {
+    console.log
+}
 
 
 
